@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Claude Code: personal, per-machine settings (permissions, local overrides).
+# .claude/settings.json IS versioned — it holds the project's shared agent config.
+.claude/settings.local.json
