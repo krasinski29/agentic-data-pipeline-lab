@@ -27,17 +27,6 @@ phase, discussed before any code is written.
   `uv add <pkg>` / `uv add --dev <pkg>` / `uv remove <pkg>`, then commit
   the resulting `pyproject.toml` and `uv.lock` together.
 
-## Everyday commands
-
-```bash
-uv sync                       # install/update the environment from uv.lock
-uv run pytest                 # run tests
-uv run ruff check .           # lint
-uv run ruff format .          # format
-uv run pre-commit run --all-files   # run all pre-commit hooks manually
-uv run pipeline-lab           # run the CLI entry point
-```
-
 ## Layout
 
 ```
@@ -45,40 +34,26 @@ src/pipeline_lab/   # the package — all importable source code lives here
 tests/               # pytest tests, mirroring the src/ structure
 ```
 
-This is a **src layout**, chosen deliberately: code is only importable
-because it's installed into `.venv` (via `uv sync`), not because it sits
-next to the tests. This catches packaging mistakes that a flat layout
-would hide. When adding a new module under `src/pipeline_lab/`, add a
-corresponding test under `tests/`.
+**src layout, chosen deliberately**: code is only importable because
+it's installed into `.venv` (via `uv sync`), not because it sits next to
+the tests. This catches packaging mistakes a flat layout would hide.
+When adding a module under `src/pipeline_lab/`, add a corresponding test
+under `tests/`.
 
-## Quality gates
+## Workflow — use the skills, don't improvise the procedure
 
-Three layers, in increasing order of strictness:
+- **Before reporting any change as done, passing, or ready** — run
+  `/quality-check`. Never claim tests pass or lint is clean without
+  having just run it.
+- **To propose any change** — run `/open-pr`. It encodes this repo's
+  branch naming, Conventional Commits format, PR structure, and the
+  rule that **merges are always manual**, done by the repo owner, never
+  by the agent, even when CI is green.
+- **Never commit directly to `main`.** No exception, including for
+  small config/tooling changes.
 
-1. **Local hook** (`.pre-commit-config.yaml`, installed via
-   `pre-commit install`) — runs `ruff-check --fix` and `ruff-format` on
-   `git commit`. Skippable (`--no-verify`), only active if installed.
-2. **CI** (`.github/workflows/ci.yml`) — runs on every push/PR against
-   `main`: `uv sync --locked`, `ruff check`, `ruff format --check`,
-   `pytest`. This is the check nobody can bypass.
-3. **Manual review** — every PR is merged by the repo owner, not
-   auto-merged, even when CI passes.
-
-Before proposing a change as done, run `uv run ruff check .` and
-`uv run pytest` yourself and report the actual output — don't assume.
-
-## Git workflow
-
-- **Never commit directly to `main`.** Every change goes through a
-  branch and a PR, even small config changes.
-- Branch naming: `<type>/<short-description>`, e.g.
-  `chore/quality-tooling`, `feat/ingest-csv`.
-- **Commit messages and PR titles follow [Conventional Commits](https://www.conventionalcommits.org/):**
-  `feat:`, `fix:`, `chore:`, `docs:`, `test:`, `ci:`, `refactor:` — a
-  type prefix, present tense, no trailing period. This is enforced by
-  convention, not by a commit-lint tool (yet).
-- **Merges are always manual**, done by the repo owner after reviewing
-  the PR — even when CI is green. Do not merge PRs automatically.
+If a skill's procedure and this file ever disagree, the skill is
+out of date — fix the skill, don't just follow this file instead.
 
 ## What NOT to do without asking
 
