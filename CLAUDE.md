@@ -32,6 +32,7 @@ phase, discussed before any code is written.
 ```
 src/pipeline_lab/   # the package — all importable source code lives here
 tests/               # pytest tests, mirroring the src/ structure
+docs/decisions/      # ADRs — one frozen record per architecture decision
 ```
 
 **src layout, chosen deliberately**: code is only importable because
@@ -49,6 +50,12 @@ under `tests/`.
   branch naming, Conventional Commits format, PR structure, and the
   rule that **merges are always manual**, done by the repo owner, never
   by the agent, even when CI is green.
+- **To record an architecture decision** — run `/record-decision`. It
+  encodes where each piece goes (Linear document for the reasoning,
+  frozen ADR under `docs/decisions/`, issue description for the
+  summary), the rule that **an accepted ADR is superseded, never
+  edited**, and the duty to propagate consequences to the issues that
+  inherit them.
 - **Never commit directly to `main`.** No exception, including for
   small config/tooling changes.
 
