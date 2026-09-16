@@ -10,6 +10,14 @@ Este arquivo é a referência normativa dos números. O documento no Linear
 guarda o porquê de cada um; aqui ficam os valores que o gerador
 (KRA-29) tem que respeitar.
 
+**Convenção** — este é o primeiro ADR do repositório e fixa como os próximos
+funcionam: **um ADR aceito não é editado**. Quando a decisão mudar (um degrau
+novo que mexa em `S`, por exemplo), escreve-se um ADR novo que supersede este,
+e o Status daqui passa a `supersedido por 000N`. O que se preserva assim não é
+só a decisão vigente — é a cadeia de raciocínio, incluindo o que foi
+abandonado e por quê. Correção de erro factual ou de digitação segue sendo
+edição normal.
+
 ## Contexto
 
 O degrau 1 tem alvo de ~10K pedidos — pequeno de propósito, volume em que
@@ -133,5 +141,6 @@ temporal e skew.
   1 no degrau 1 — retrofitar o multiplicador depois sai mais caro.
 - Os alvos de skew viram asserção de teste no gerador, não comentário: são
   ground truth verificável.
-- Mudar `S` num degrau novo é editar este arquivo e o documento no Linear,
-  num PR — não uma edição silenciosa.
+- Mudar `S` num degrau novo **não** edita este arquivo: escreve um ADR que o
+  supersede. O documento no Linear é o que evolui; este arquivo é o registro
+  congelado do que foi decidido em 2026-09-16.
