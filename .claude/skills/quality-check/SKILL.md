@@ -1,6 +1,10 @@
 ---
 name: quality-check
 description: Run this repo's full local quality gate (ruff lint, ruff format check, pytest) and report the actual results. Use before claiming any change is "done", "passing", or "ready for PR" — never state that without having just run this.
+license: CC-BY-4.0
+metadata:
+  author: krasinski29
+  version: '1.0.0'
 ---
 
 # Quality check
