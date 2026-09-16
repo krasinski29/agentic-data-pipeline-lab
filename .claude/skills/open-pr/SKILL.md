@@ -1,6 +1,10 @@
 ---
 name: open-pr
 description: Open a pull request in this repo following its established convention — branch naming, Conventional Commits, structured PR body, and manual-merge-only. Use whenever changes are ready to be committed and proposed, in this project.
+license: CC-BY-4.0
+metadata:
+  author: krasinski29
+  version: '1.0.0'
 ---
 
 # Open a PR
