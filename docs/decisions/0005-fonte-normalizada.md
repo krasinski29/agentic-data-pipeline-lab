@@ -44,7 +44,7 @@ montada depois.
 
 ## Decisão
 
-**A fonte é um modelo transacional normalizado.** Sete tabelas no degrau 1.
+**A fonte é um modelo transacional normalizado.** Seis tabelas no degrau 1.
 
 ```text
 cities          (city_id, name, state)
@@ -308,12 +308,12 @@ Registradas porque são onde este modelo é atacável.
 - **KRA-27 herda** `merchant_id` e `customer_id` como FKs, `price_tier` como
   variável que condiciona o valor do pedido, e `delivery_neighborhood_id` como
   FK para `neighborhoods`. `order_items` segue em aberto lá.
-- **KRA-28 herda** sete tabelas com **cadências diferentes**: as de referência
+- **KRA-28 herda** seis tabelas com **cadências diferentes**: as de referência
   praticamente não mudam, `orders` muda todo dia. Full refresh por tabela
   deixa de ser decisão única e vira decisão por tabela no degrau 2. `merchants`
   continua tabela pequena (30 em S=1, 388 no degrau 4) e **não** precisa de
   particionamento por data.
-- **KRA-29 herda** cinco obrigações: gerar as sete tabelas; derivar
+- **KRA-29 herda** cinco obrigações: gerar as seis tabelas; derivar
   `merchant_id` por UUIDv5 sobre `seed + índice`; garantir em teste que o
   merchant do índice `i` é idêntico para qualquer `S`; ler os centróides de
   `neighborhoods` em vez de embuti-los; e **garantir integridade referencial

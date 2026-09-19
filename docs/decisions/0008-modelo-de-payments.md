@@ -439,7 +439,7 @@ fato** — só quando *deveria* liquidar, por derivação.
 
 ## Consequências
 
-- **A fonte passa de sete para oito tabelas.** `payment_methods` junta-se a
+- **A fonte passa de seis para oito tabelas.** `payment_methods` junta-se a
   `cities`, `neighborhoods` e `cuisine_types` como tabela de referência.
 - **KRA-28 herda três coisas**: a oitava tabela; `payments` com cadência diária
   e **sem coluna de data própria**, então particionar exige a data do pai ou não
