@@ -1,6 +1,6 @@
 # 0003 — Modelo de `merchants`
 
-- **Status**: aceita
+- **Status**: supersedida por [0004](0004-terceira-porta-do-criterio.md) e [0005](0005-fonte-normalizada.md)
 - **Data**: 2026-09-16
 - **Issue**: [KRA-25](https://linear.app/krasinski-projects/issue/KRA-25/modelar-merchants)
 - **Restringe**: [KRA-26](https://linear.app/krasinski-projects/issue/KRA-26/modelar-customers), [KRA-27](https://linear.app/krasinski-projects/issue/KRA-27/modelar-orders), [KRA-28](https://linear.app/krasinski-projects/issue/KRA-28/decidir-formato-e-local-de-pouso-do-dado-bruto), [KRA-29](https://linear.app/krasinski-projects/issue/KRA-29/construir-o-gerador-do-degrau-1)
