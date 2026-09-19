@@ -33,6 +33,7 @@ phase, discussed before any code is written.
 src/pipeline_lab/   # the package — all importable source code lives here
 tests/               # pytest tests, mirroring the src/ structure
 docs/decisions/      # ADRs — one frozen record per architecture decision
+docs/erd-*.md        # ERD derived from the ADRs — the ADR wins if they diverge
 ```
 
 **src layout, chosen deliberately**: code is only importable because
